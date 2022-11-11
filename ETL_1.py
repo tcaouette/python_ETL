@@ -30,7 +30,7 @@ import glob
 #    Author: Tobias Caouette 
 #    Date: June 29th, 2020
 #    Revision: 1
-#    Description: Script scrapes Evolis and PR4100 and builds dataframes for each. 
+#    Description: 
 #                    The dataframes are passed to functions that create excel documents and functions that send the dataframes to SQL.
 #                   Once completed the files are moved to an archival location as well as being renamed with datetime stamps.
 #######################################################################################################################################################
@@ -58,7 +58,7 @@ def lookin_folder(root_dir1,root_dir2, r_exfile=None):# will have to account for
  
 
 def evolis_add_meta(txt_file_paths):
-    '''Builds dataframe from the evolis text file, if there are multiple text files, each dataframe is appended to one another. 
+    '''Builds dataframe from the  text file, if there are multiple text files, each dataframe is appended to one another. 
         If no text files sends a blank list as a dataframe to the sql and excel functions'''
     if len(txt_file_paths) > 0:
         append_evolis = pd.DataFrame()
@@ -83,7 +83,7 @@ def evolis_add_meta(txt_file_paths):
 
 
 def extract_pr4100(txt_file_paths):
-    '''Builds dataframe from the pr4100 text file, if there are multiple text files, each dataframe is appended to one another. 
+    '''Builds dataframe from the  text file, if there are multiple text files, each dataframe is appended to one another. 
         If no text files sends a blank list as a dataframe to the sql and excel functions'''
     if len(txt_file_paths) > 0:
 
@@ -341,7 +341,7 @@ def pr41_send_to_sql(df,table_name,engine,text):# customize for evolis and pr410
 
 # move excel file before writing new excel file and move pdf's to new folder
 def move_files(root_dir1, root_dir2,root_dir3, dest_folder,text):
-    '''Moves files to the archive(dest_folder). root_dir1 is the directory for evolis and root_dir1 directory for pr4100, root_dir3 is for the excel files,dest_folder is archive for both txt and excel files'''
+    '''Moves files to the archive(dest_folder). root_dir1 is the directory for  and root_dir1 directory for , root_dir3 is for the excel files,dest_folder is archive for both txt and excel files'''
     txt_evolis_files =[]
     txt_pr41_files=[]
     excel_file=[]
@@ -457,7 +457,7 @@ def main():
     
     
     pr41_send_to_sql(transposed_pr41,pr41_table_name,engine,text)
-    print('PR4100 dataframe sent to SQL')
+    print(' dataframe sent to SQL')
             ###end pr41
 
         
